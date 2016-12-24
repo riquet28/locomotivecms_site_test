@@ -1,0 +1,59 @@
+---
+title: Default layout
+slug: default
+position: 99
+listed: false
+published: false
+is_layout: false
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ site.name }}</title>
+
+    {% if site.metafields.theme.favicon %}
+      <link rel="shortcut icon" href="{{ site.metafields.theme.favicon }}">
+    {% else %}
+      <link rel="shortcut icon" href="{{ 'favicon.png' | theme_image_url }}">
+    {% endif %}
+
+    {{ 'bootstrap.css' | stylesheet_tag }}
+    {{ 'icomoon-social.css' | stylesheet_tag }}
+    <!--[if lte IE 8]>
+		    <link rel="stylesheet" href="css/leaflet.ie.css" />
+		<![endif]-->
+    {{ 'leaflet.css' | stylesheet_tag }}
+    {{ 'main.css' | stylesheet_tag }}
+
+    {{ 'modernizr-2.6.2-respond-1.1.0.min.js' | javascript_tag }}
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+    {% include 'nav' %}
+
+    {% block content/main %}
+    {% endblock %}
+
+    {% include 'footer' %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.9.1.min.js"><\/script>')</script>
+    {{ 'bootstrap.min.js' | javascript_tag }}
+    <script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+    {{ 'jquery.fitvids.js' | javascript_tag }}
+    {{ 'jquery.sequence-min.js' | javascript_tag }}
+    {{ 'jquery.bxslider.js' | javascript_tag }}
+    {{ 'main-menu.js' | javascript_tag }}
+    {{ 'template.js' | javascript_tag }}
+
+
+  </body>
+</html>
